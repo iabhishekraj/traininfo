@@ -1,0 +1,71 @@
+<div class="live-status-content">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <!-- take input from user -->
+      <div class="train-status-input-form">
+        <h2>Get Live Status of Train</h2>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Enter Train's Number</label>
+          <input type="number" class="form-control" id="txt_train_number" aria-describedby="emailHelp" placeholder="Enter Train Number"
+            title="train number" #trainNum value="12302">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="date" class="form-control" id="txt_date" placeholder="Select Date" title="Date" #date value="2018-06-01">
+        </div>
+        <button type="button" class="btn btn-primary" (click)="getLiveStatus(trainNum.value, date.value)">Get Live Status</button>
+      </div>
+    </div>
+  </div>
+  <!-- show result -->
+  <div class="show-train-live-status" *ngIf="liveInfo.response_code == 200; else trainnotrunning">
+    <hr>
+    <h3>Running Status of {{liveInfo.train.name}} ({{liveInfo.train.number}}) on {{liveInfo.start_date}}</h3>
+    <!-- current status -->
+    <div class="current-status">{{liveInfo.position}}</div>
+    <div class="route-info">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Station Name</th>
+            <th>Sch. Arrival</th>
+            <th>Sch. Departure</th>
+            <th>Actual Arrival (delay)</th>
+            <th>Actual Departure</th>
+            <th>Distance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let index of liveInfo.route">
+            <td>{{index.station.name}}</td>
+            <td>{{index.scharr}}</td>
+            <td>{{index.schdep}}</td>
+            <td>{{index.actarr}}
+            <span *ngIf="index.has_arrived">
+                <span class="early-min" *ngIf="index.latemin <= 0">
+                  (+{{(-1) * index.latemin}} mins.)
+                </span>
+                <span class="late-min" *ngIf="index.latemin > 0">
+                  ({{(-1) * index.latemin}} mins.)
+                </span>
+              </span>
+            </td>
+            <td>{{index.actdep}}</td>
+            <td>
+              <span *ngIf="index.station.name == currentLocation">
+                <img class="train-img" src="./assets/images/train.png" alt="train image not visible">
+              </span>
+              <span *ngIf="index.station.name != currentLocation">
+                {{index.distance}}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="show-train-live-status" *ngIf="liveInfo.response_code == 210">
+    <hr>
+      <div class="current-status">Train doesn't run on Given Date.</div> 
+  </div>
+</div>

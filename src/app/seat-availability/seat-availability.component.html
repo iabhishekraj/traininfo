@@ -1,0 +1,102 @@
+<div class="content">
+  <!-- take input from user -->
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="input-form">
+        <h2>Seat Availability</h2>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label>Train Number</label>
+              <input type="number" class="form-control" placeholder="Enter Train Number" title="Train number" #TrainNumber value="12303"
+                (blur)="findTrainName(TrainNumber.value)" autofocus>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <!-- train name -->
+            <div class="form-group">
+              <label>Train Name</label>
+              <input type="text" [ngClass]="trainNumberCheckStatus == true ? 'rightname' : 'wrongname'" class="form-control readonly-field" placeholder="Train Name" title="Train Name" [(ngModel)]="trainName" readonly>
+            </div>
+          </div>
+        </div>
+        <!-- select station  -->
+        <div class="row">
+          <div class="col-sm-6">
+            <!-- Source station -->
+            <div class="form-group">
+              <label>Source Station</label>
+              <input type="text" class="form-control" placeholder="Enter Source Station Code" title="Source Station" #Source value="HWH">
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <!-- Destination station -->
+            <div class="form-group">
+              <label>Destination Station</label>
+              <input type="text" class="form-control" placeholder="Enter Destination" title="Destination Station" #Destination value="NDLS">
+            </div>
+          </div>
+        </div>
+        <!-- other options -->
+        <div class="row">
+          <div class="col-sm-4">
+            <!-- Select Date -->
+            <div class="form-group">
+              <label>Select Date</label>
+              <input type="date" class="form-control" placeholder="Select Date" title="Date" #Date value="2018-06-25">
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <!-- Select Class -->
+            <div class="form-group">
+              <label>Select Class</label>
+              <select class="form-control" placeholder="Select Class" title="Class" #Class>
+                <option value="SL" selected>Sleeper</option>
+                <option value="3A">Third Class AC</option>
+                <option value="2A">Second Class AC</option>
+                <option value="1A">First Class AC</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <!-- Quota -->
+            <div class="form-group">
+              <label>Quota</label>
+              <select class="form-control" placeholder="Select Quota" title="Quota" #Quota>
+                <option value="GN" selected>General</option>
+                <option value="LD">Ladies Quota</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="findSeatAvailable(TrainNumber.value, Source.value, Destination.value, Date.value, Class.value, Quota.value)">Check</button>
+      </div>
+    </div>
+  </div>
+  <!-- show result -->
+  <div class="show-result" *ngIf="seatInfo.response_code == 200">    
+    <h3>You Queried for Train: {{seatInfo.train.name}} ({{seatInfo.train.number}})</h3>        
+    <h4>(Qouta : {{seatInfo.quota.name}}) (Class : {{seatInfo.journey_class.name}})</h4>
+    <hr>
+    <div class="row">
+      <div class="col-sm-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>S. No.</th>
+              <th>Date</th>
+              <th>Status</th>              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let info of seatInfo.availability;let i = index">
+              <td>{{i+1}}</td>
+              <td>{{info.date}}</td>
+              <td>{{info.status}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

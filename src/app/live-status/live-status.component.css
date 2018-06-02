@@ -1,0 +1,65 @@
+.live-status-content {
+  margin-top: 150px;
+}
+
+.train-status-input-form {
+  padding: 5%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 30px grey;
+  transition: 0.3s;
+}
+
+.train-status-input-form:hover {
+  box-shadow: 0px 0px 10px grey;
+  transition: 0.3s;
+}
+
+.train-status-input-form h2 {
+  text-align: center;
+  border-bottom: 1px solid;
+}
+
+.current-status {
+  text-align: center;
+  color: black;
+  background: #EEB902;
+  padding: 10px;
+  border: 1px solid lightgrey;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.route-info table {
+  border: 1px solid;
+}
+
+.route-info table thead {
+  background: cadetblue;
+  color: white;
+}
+
+.train-img {
+  width: 30px;
+  height: 30px;
+  animation: blink 0.8s linear infinite;
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.show-train-live-status h3 {
+  text-align: center;
+}
+
+.late-min {
+  color: red;
+}
+.early-min{
+  color: green;
+}

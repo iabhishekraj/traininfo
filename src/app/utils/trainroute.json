@@ -1,0 +1,194 @@
+{
+    "response_code": 200,
+    "debit": 1,
+    "train": {
+        "classes": [
+            {
+                "available": "N",
+                "code": "CC",
+                "name": "AC CHAIR CAR"
+            },
+            {
+                "available": "Y",
+                "code": "3A",
+                "name": "THIRD AC"
+            },
+            {
+                "available": "Y",
+                "code": "1A",
+                "name": "FIRST AC"
+            },
+            {
+                "available": "N",
+                "code": "2S",
+                "name": "SECOND SEATING"
+            },
+            {
+                "available": "N",
+                "code": "FC",
+                "name": "FIRST CLASS"
+            },
+            {
+                "available": "Y",
+                "code": "2A",
+                "name": "SECOND AC"
+            },
+            {
+                "available": "N",
+                "code": "SL",
+                "name": "SLEEPER CLASS"
+            },
+            {
+                "available": "N",
+                "code": "3E",
+                "name": "3rd AC ECONOMY"
+            }
+        ],
+        "days": [
+            {
+                "runs": "Y",
+                "code": "MON"
+            },
+            {
+                "runs": "Y",
+                "code": "TUE"
+            },
+            {
+                "runs": "Y",
+                "code": "WED"
+            },
+            {
+                "runs": "Y",
+                "code": "THU"
+            },
+            {
+                "runs": "N",
+                "code": "FRI"
+            },
+            {
+                "runs": "Y",
+                "code": "SAT"
+            },
+            {
+                "runs": "Y",
+                "code": "SUN"
+            }
+        ],
+        "number": "12302",
+        "name": "KOLKATA RAJDHANI EXPRESS"
+    },
+    "route": [
+        {
+            "no": 1,
+            "station": {
+                "lng": -90.2612233,
+                "lat": 39.0317139,
+                "code": "NDLS",
+                "name": "NEW DELHI"
+            },
+            "day": 1,
+            "distance": 0,
+            "scharr": "SOURCE",
+            "schdep": "16:55",
+            "halt": -1
+        },
+        {
+            "no": 2,
+            "station": {
+                "lng": 80.3506961,
+                "lat": 26.4547354,
+                "code": "CNB",
+                "name": "KANPUR CENTRAL"
+            },
+            "day": 1,
+            "distance": 447,
+            "scharr": "21:35",
+            "schdep": "21:40",
+            "halt": 5
+        },
+        {
+            "no": 3,
+            "station": {
+                "lng": 81.8338005,
+                "lat": 25.4381302,
+                "code": "ALD",
+                "name": "ALLAHABAD JN"
+            },
+            "day": 1,
+            "distance": 642,
+            "scharr": "23:40",
+            "schdep": "23:43",
+            "halt": 3
+        },
+        {
+            "no": 4,
+            "station": {
+                "lng": 83.1251282,
+                "lat": 25.2807327,
+                "code": "MGS",
+                "name": "MUGHAL SARAI JN"
+            },
+            "day": 2,
+            "distance": 791,
+            "scharr": "01:44",
+            "schdep": "01:54",
+            "halt": 10
+        },
+        {
+            "no": 5,
+            "station": {
+                "lng": 85.0079563,
+                "lat": 24.7964355,
+                "code": "GAYA",
+                "name": "GAYA JN"
+            },
+            "day": 2,
+            "distance": 994,
+            "scharr": "03:47",
+            "schdep": "03:50",
+            "halt": 3
+        },
+        {
+            "no": 6,
+            "station": {
+                "lng": 86.0377584,
+                "lat": 23.987738,
+                "code": "PNME",
+                "name": "PARASNATH"
+            },
+            "day": 2,
+            "distance": 1146,
+            "scharr": "05:45",
+            "schdep": "05:47",
+            "halt": 2
+        },
+        {
+            "no": 7,
+            "station": {
+                "lng": 86.4309638,
+                "lat": 23.7952809,
+                "code": "DHN",
+                "name": "DHANBAD JN"
+            },
+            "day": 2,
+            "distance": 1193,
+            "scharr": "06:35",
+            "schdep": "06:40",
+            "halt": 5
+        },
+        {
+            "no": 8,
+            "station": {
+                "lng": 88.323139,
+                "lat": 22.5882216,
+                "code": "HWH",
+                "name": "HOWRAH JN"
+            },
+            "day": 2,
+            "distance": 1453,
+            "scharr": "09:50",
+            "schdep": "DEST",
+            "halt": -1
+        }
+    ]
+}

@@ -1,0 +1,79 @@
+<div class="pnr-status-content content">
+  <!-- take input from user -->
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="input-form">
+        <h2>Get PNR Status</h2>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Enter PNR Number</label>
+          <input type="number" class="form-control" id="txt_pnr_number" placeholder="Enter PNR Number" title="PNR number" #PNRNum value="6314624833">
+        </div>
+        <button type="button" class="btn btn-primary" (click)="getPNRStatus(PNRNum.value)">Get PNR Status</button>
+      </div>
+    </div>
+  </div>
+  <!-- show result -->
+  <div class="show-result" *ngIf="pnrStatus.response_code >= 200 && pnrStatus.response_code <= 299">
+    <h3>You Queried for PNR Number: {{pnrStatus.pnr}}</h3>
+    <div class="row">
+      <div class="col-sm-12">
+        <!-- info 1 -->
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Train Number</th>
+              <th>Train Name</th>
+              <th>Boarding Date</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Reserved Upto</th>
+              <th>Boarding Point</th>
+              <th>Class</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{pnrStatus.train.number}}</td>
+              <td>{{pnrStatus.train.name}}</td>
+              <td>{{pnrStatus.doj}}</td>
+              <td>{{pnrStatus.from_station.name}} ({{pnrStatus.from_station.code}})</td>
+              <td>{{pnrStatus.to_station.name}} ({{pnrStatus.to_station.code}})</td>
+              <td>{{pnrStatus.reservation_upto.name}} ({{pnrStatus.reservation_upto.code}})</td>
+              <td>{{pnrStatus.boarding_point.name}} ({{pnrStatus.boarding_point.code}})</td>
+              <td>{{pnrStatus.journey_class.code}}</td>              
+            </tr>
+          </tbody>
+        </table>
+        <!-- info 2 -->
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Number of Passenger</th>
+                <th>Booking Status (Coach No/ Berth No./ Quota)</th>
+                <th>Current Status (Coach No/ Berth No.)</th>                
+                <th>Chart Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{pnrStatus.total_passengers}}</td>
+                <td>{{pnrStatus.passengers[0].booking_status}}</td>
+                <td>{{pnrStatus.passengers[0].current_status}}</td>          
+                <td>
+                  <span *ngIf="pnrStatus.chart_prepared; else notprepared">
+                    Chart Prepared
+                  </span>
+                  <ng-template #notprepared>
+                    Chart Not Prepared
+                  </ng-template>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+      </div>
+
+      </div>
+    </div>
+  </div>

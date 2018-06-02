@@ -1,0 +1,57 @@
+.app-title{
+    height: 60px;
+    /* border: 1px solid red; */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;    
+    z-index: 1;
+    box-shadow: 0px 0px 10px grey;
+    background: #1b7477;
+}
+h1{
+    text-align: center;    
+    margin: 0;
+    padding: 10px;
+    color: white;
+    position: absolute;
+    top: 13px;
+    left: 0;
+    width: 100%;
+    z-index: 12;
+    text-shadow: 4px -4px 5px black;
+    font-size: 40px;
+}
+.running-train img{
+    height: 50px;
+    width: 100px;
+    position: absolute;
+    z-index: 3;
+    right: -10%;
+    top: 13px;
+    animation: runtrain 17s infinite linear;
+}
+
+@keyframes runtrain{
+    from{
+        right: -5%;
+    }
+    to{
+        right: 150%;
+    }
+    
+}
+
+#content{
+    position: relative;
+}
+
+.menu{
+    position: fixed;
+    top: 59px;    
+    width: 100%;    
+    z-index: 1000;
+}
+.navbar{
+    border-radius: 0px !important;
+}

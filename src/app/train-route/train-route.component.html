@@ -1,0 +1,54 @@
+<div class="content">
+  <!-- take input from user -->
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="input-form">
+        <h2>Train Route</h2>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Enter Train Number</label>
+          <input type="number" class="form-control" placeholder="Enter Train Number" title="Train number" #TrainNumber value="12302">
+        </div>
+        <button type="button" class="btn btn-primary" (click)="getRoute(TrainNumber.value)">Get Route</button>
+      </div>
+    </div>
+  </div>
+  <!-- show result -->
+  <div class="show-result" *ngIf="trainRoute.response_code == 200">
+    <h3>You Queried for Train: {{trainRoute.train.name}} ({{trainRoute.train.number}})</h3>
+    <div class="row">
+      <div class="col-sm-12">        
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>S. No.</th>
+              <th>Station Name (Code)</th>
+              <th>Schedule Arrival</th>
+              <th>Schedule Departure</th>              
+              <th>Halt</th>
+              <th>Day</th>              
+              <th>Distance</th>              
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let route of trainRoute.route">
+              <td>{{route.no}}</td>
+              <td>{{route.station.name}} ({{route.station.code}})</td>
+              <td>{{route.scharr}}</td>
+              <td>{{route.schdep}}</td>
+              <td>
+                <span *ngIf="route.halt == '-1'; else not_applicable">
+                    NA
+                </span>
+                <ng-template #not_applicable>
+                    {{route.halt}} mins
+                </ng-template>
+              </td>
+              <td>{{route.day}}</td>
+              <td>{{route.distance}}</td>              
+            </tr>
+          </tbody>
+        </table>        
+      </div>
+    </div>
+  </div>
+</div>
