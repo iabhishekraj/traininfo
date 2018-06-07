@@ -1,4 +1,4 @@
-This application is very useful to get the information related to train. Such as :-
+By using this application, you can get the information related to train. Such as :-
 1. live status of train
 2. PNR Status
 3. Get Train Route
