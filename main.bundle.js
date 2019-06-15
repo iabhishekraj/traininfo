@@ -604,8 +604,9 @@ var TrainsBetweenStationsComponent = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return API; });
-//new api key - d9pk6io6im 5pf163qdia
-var API = "ilitomf8j8";
+//new api key - d9pk6io6im 5pf163qdia ilitomf8j8
+	
+var API = "ithbj7w3ea";
 
 
 /***/ }),
